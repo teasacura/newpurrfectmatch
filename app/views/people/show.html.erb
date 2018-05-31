@@ -15,3 +15,7 @@ Age: <p><%= @person.age %></p>
 
 <br>
 <%= link_to "Edit Profile", edit_person_path(@person) %>
+
+<br>
+<br>
+<%= link_to "Delete Profile", person_path(@person), { method: :delete } %>

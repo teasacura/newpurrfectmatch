@@ -11,7 +11,8 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     if @person.save
-      redirect_to @person
+      session[:person_id] = @person.id
+      redirect_to profiles_path
     else
       render 'new'
     end
@@ -30,8 +31,9 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+    byebug
     @person.delete
-    redirect_to profiles
+    redirect_to root
   end
 
   private

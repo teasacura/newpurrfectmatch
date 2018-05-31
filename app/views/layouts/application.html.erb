@@ -5,8 +5,8 @@
   <!-- <#%= csrf_meta_tags %>
   <#%= csp_meta_tag %>
 
-  <#%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <#%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->
+  <#%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,13 +31,33 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Home</a></li>
+	        <li class="active"><a href="/profiles">Home</a></li>
 	        <li><a href="#">About</a></li>
 	        <li><a href="#">Contact</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="/account-type">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-	        <li><a href="/">Login <i class="fa fa-user" aria-hidden="true"></i></a></li>
+
+					<% if session[:person_id].nil? %>
+					<%= link_to(@profile) do %>
+  					<strong><%= @profile.name %></strong> -- <span>Check it out!</span>
+					<% end %>
+
+						<li>
+							<%= link_to(login_path) do %>
+								Login <i class="fa fa-user" aria-hidden="true"></i></a>
+							<% end %>
+						</li>
+					<% else %>
+						<li>
+							<%= link_to(logout_path, method: :delete) do %>
+								Logout <i class="fa fa-user" aria-hidden="true"></i></a>
+							<% end %>
+						</li>
+
+							<!-- <a href="/logout" method="post">Logout <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+					<% end %>
+
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container -->
