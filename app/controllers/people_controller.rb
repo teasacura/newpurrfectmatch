@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
   def destroy
     byebug
     @person.delete
-    redirect_to root
+    redirect_to root_path
   end
 
   private
