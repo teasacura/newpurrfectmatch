@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_194123) do
     t.string "breed_pref"
     t.string "temperament_pref"
     t.integer "num_of_cats"
-    t.boolean "admin?", default: false
+    t.boolean "admin", default: false
     t.string "image_url", default: "https://camo.githubusercontent.com/341831200626efe3e0cf83317801fcac2200fbe2/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f323639323831302f323130343036312f34643839316563302d386637362d313165332d393230322d6637333934306431306632302e706e67"
   end
 

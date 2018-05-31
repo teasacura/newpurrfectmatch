@@ -1,6 +1,9 @@
 <h1><%= @person.name %></h1>
 Age: <p><%= @person.age %></p>
 <p><%= image_tag(@person.image_url) %></p>
+<% if @person.admin %>
+  <h3><%= "Admin" %></h3>
+<% end %>
 
 <h1>Cats</h1>
 <% if @person.cats.empty? %>
@@ -15,7 +18,7 @@ Age: <p><%= @person.age %></p>
 
 
 
-<% if session[:person_id] == @person.id || Person.find(session[:person_id]).admin? %>
+<% if current_user && @person.id == current_user.id || current_user && current_user.admin %>
 <%= link_to "Add a New Cat", new_cat_path, class: "btn btn-primary" %>
   <br>
   <br>
