@@ -1,0 +1,103 @@
+
+  <div style="width: 30%; margin: 25px auto;">
+
+    <%= form_for @person do |f| %>
+
+    <ul>
+      <% if @person.errors.any? %>
+        <% @person.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+
+      <!-- Name -->
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+
+      <!-- Password Confirmation -->
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+      </div>
+
+      <!-- Age -->
+      <div class="form-group">
+        <%= f.label :age %>
+        <%= f.number_field :age, min: 18, class: "form-control", placeholder: "Age" %>
+      </div>
+
+      <!-- Image URL -->
+      <div class="form-group">
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url, class: "form-control", placeholder: "Image URL" %>
+      </div>
+      <!-- Description -->
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <%= f.label :location %>
+        <%= f.password_field :location, class: "form-control", placeholder: "Location" %>
+      </div>
+
+      <h2>Household Information</h2>
+
+      <!-- Number of Cats -->
+      <div class="form-group">
+        <%= f.label :num_of_cats, "Number of Cats" %>
+        <%= f.number_field :num_of_cats, class: "form-control", placeholder: "Number of Cats" %>
+      </div>
+
+<h2>Preferences</h2>
+
+      <!-- Breed Preference -->
+      <div class="form-group">
+        <%= f.label :breed_pref, "Breed Preference" %>
+        <%= f.text_field :breed_pref, class: "form-control", placeholder: "Breed Preference" %>
+      </div>
+
+
+      <!-- Minimum Age Preference -->
+      <div class="form-group">
+        <%= f.label :min_age_pref, "Minimum Age Preferred" %>
+        <%= f.text_field :min_age_pref, class: "form-control", placeholder: "Minimum Age" %>
+      </div>
+
+      <!-- Maximum Age Preference -->
+      <div class="form-group">
+        <%= f.label :max_age_pref, "Maximum Age Preferred" %>
+        <%= f.number_field :max_age_pref, min: 0, class: "form-control", placeholder: "Maximum Age Preferred" %>
+      </div>
+
+      <!-- Temperament Preference -->
+      <div class="form-group">
+        <%= f.label :temperament_pref, "Temperament Preference" %>
+        <%= f.text_field :temperament_pref, class: "form-control", placeholder: "Temperament Preference" %>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+        <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>

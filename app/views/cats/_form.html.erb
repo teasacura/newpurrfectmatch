@@ -1,0 +1,90 @@
+
+  <div style="width: 30%; margin: 25px auto;">
+
+    <%= form_for @cat do |f| %>
+
+    <ul>
+      <% if @cat.errors.any? %>
+        <% @cat.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+      <!-- Email -->
+      <!-- <div class="form-group">
+        <#%= f.label :email %>
+        <#%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+      </div> -->
+
+      <!-- Password -->
+      <!-- <div class="form-group">
+        <#%= f.label :password %>
+        <#%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div> -->
+
+      <!-- Password Confirmation -->
+
+      <!-- <div class="form-group">
+        <#%= f.label :password_confirmation %>
+        <#%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+      </div> -->
+
+      <h2>Cat Info</h2>
+
+      <!-- Name -->
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+      </div>
+
+      <!-- Breed -->
+      <div class="form-group">
+        <%= f.label :breed %>
+        <%= f.number_field :breed, min: 1, class: "form-control", placeholder: "Breed" %>
+      </div>
+
+      <!-- Age -->
+      <div class="form-group">
+        <%= f.label :age %>
+        <%= f.number_field :age, min: 1, class: "form-control", placeholder: "Age" %>
+      </div>
+
+
+      <!-- Description -->
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+      </div>
+
+      <!-- Sociability -->
+      <div class="form-group">
+        <%= f.label :sociability %>
+        <%= f.text_field :sociability, class: "form-control", placeholder: "Sociability" %>
+      </div>
+
+      <!-- Temperament -->
+      <div class="form-group">
+        <%= f.label :temperament, "Temperament Preference" %>
+        <%= f.text_field :temperament, class: "form-control", placeholder: "Temperament" %>
+      </div>
+
+
+      <!-- Location -->
+      <div class="form-group">
+        <%= f.label :location %>
+        <%= f.password_field :location, class: "form-control", placeholder: "Location" %>
+      </div>
+
+      <!-- Image URL -->
+      <div class="form-group">
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url, class: "form-control", placeholder: "Image URL" %>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+        <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>

@@ -1,0 +1,6 @@
+<h1><%= @cat.name %></h1>
+Breed: <p><%= @cat.breed %></p>
+<p><%= image_tag(@cat.image_url) %></p>
+
+<br>
+<%= link_to "Edit Profile", edit_cat_path(@cat) %>

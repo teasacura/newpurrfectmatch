@@ -1,0 +1,17 @@
+<h1><%= @person.name %></h1>
+Age: <p><%= @person.age %></p>
+<p><%= image_tag(@person.image_url) %></p>
+
+<h1>Pets</h1>
+<% if @person.cats.empty? %>
+  <%= "I don't have cats" %>
+<% else %>
+<ul>
+  <% @person.cats.each do |cat| %>
+    <li><%= link_to cat.name, cat_path(cat) %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<br>
+<%= link_to "Edit Profile", edit_person_path(@person) %>
