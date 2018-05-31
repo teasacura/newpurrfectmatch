@@ -39,10 +39,6 @@
 	        <li><a href="/account-type">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
 
 					<% if session[:person_id].nil? %>
-					<%= link_to(@profile) do %>
-  					<strong><%= @profile.name %></strong> -- <span>Check it out!</span>
-					<% end %>
-
 						<li>
 							<%= link_to(login_path) do %>
 								Login <i class="fa fa-user" aria-hidden="true"></i></a>
