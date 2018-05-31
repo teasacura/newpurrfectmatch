@@ -23,9 +23,12 @@ class PeopleController < ApplicationController
   end
 
   def edit
+    redirect_to profiles_path if session[:person_id] != @person.id
   end
 
   def update
+    redirect_to profiles_path if session[:person_id] != @person.id
+
     @person.update(person_params)
     if @person.save
       redirect_to @person
@@ -35,7 +38,8 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    byebug
+    redirect_to profiles_path if session[:person_id] != @person.id
+    
     @person.delete
     redirect_to root_path
   end
