@@ -19,7 +19,10 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
-    if @cat.save
+    if @cat.valid?
+      person = Person.find(session[:person_id])
+      person.cats << @cat
+      @cat.save
       redirect_to @cat
     else
       render 'new'

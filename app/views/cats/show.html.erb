@@ -1,6 +1,13 @@
 <h1><%= @cat.name %></h1>
 Breed: <p><%= @cat.breed %></p>
 <p><%= image_tag(@cat.image_url) %></p>
+<h3>Description</h3>
+<p><%= @cat.description %></p>
+
+<h2>Owner</h2>
+<%= link_to @cat.persons.first.name, person_path(@cat.persons.first) %>
+
+<br>
 
 <br>
 <%= link_to "Edit Profile", edit_cat_path(@cat) %>

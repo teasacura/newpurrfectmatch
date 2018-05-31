@@ -1,5 +1,5 @@
 
-  <div style="width: 30%; margin: 25px auto;">
+  <div style="width: 50%; margin: 25px auto;">
 
     <%= form_for @person do |f| %>
 
@@ -11,6 +11,11 @@
       <% end %>
     </ul>
 
+      <!-- Admin? -->
+      <div class="form-group">
+        <%= f.label :admin?, "Admin?" %>
+        <%= f.check_box :admin? %>
+      </div>
 
       <!-- Name -->
       <div class="form-group">

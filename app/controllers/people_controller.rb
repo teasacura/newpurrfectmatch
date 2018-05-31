@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_person_id, only: [:edit, :update, :destroy]
+  before_action :require_login, except:[:new, :create]
 
   def new
     @person = Person.new
@@ -8,16 +9,13 @@ class PeopleController < ApplicationController
 
   def show
 
-    if !logged_in?
-      redirect_to login_path
-    end
   end
 
   def create
     @person = Person.new(person_params)
     if @person.save
       session[:person_id] = @person.id
-      redirect_to profiles_path
+      redirect_to @person
     else
       render 'new'
     end
@@ -28,7 +26,6 @@ class PeopleController < ApplicationController
   end
 
   def update
-
     @person.update(person_params)
     if @person.save
       redirect_to @person
@@ -38,7 +35,6 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-
     @person.delete
     redirect_to root_path
   end
@@ -53,8 +49,17 @@ class PeopleController < ApplicationController
     params.require(:person).permit(:name, :email, :password, :password_confirmation, :age, :description, :location, :min_age_pref, :max_age_pref, :breed_pref, :temperament_pref, :num_of_cats, :image_url)
   end
 
-  def check_user
-    redirect_to profiles_path if session[:person_id] != @person.id
+  def check_person_id
+    unless session[:person_id] == @person.id || Person.find(session[:person_id]).admin?
+      redirect_to login_path
+    end
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_path # halts request cycle
+    end
   end
 
 end

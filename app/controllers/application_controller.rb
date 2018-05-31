@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
 
   def account_type
   end
+
+  # def current_user
+  #   @current_user ||= Person.find(session[:person_id])
+  # end
+
 end

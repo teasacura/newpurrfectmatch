@@ -1,5 +1,5 @@
 
-  <div style="width: 30%; margin: 25px auto;">
+  <div style="width: 50%; margin: 25px auto;">
 
     <%= form_for @cat do |f| %>
 
@@ -30,7 +30,7 @@
         <#%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
       </div> -->
 
-      <h2>Cat Info</h2>
+      <!-- <h2>Cat Info</h2> -->
 
       <!-- Name -->
       <div class="form-group">
@@ -41,7 +41,7 @@
       <!-- Breed -->
       <div class="form-group">
         <%= f.label :breed %>
-        <%= f.number_field :breed, min: 1, class: "form-control", placeholder: "Breed" %>
+        <%= f.text_field :breed, min: 1, class: "form-control", placeholder: "Breed" %>
       </div>
 
       <!-- Age -->
@@ -65,16 +65,16 @@
 
       <!-- Temperament -->
       <div class="form-group">
-        <%= f.label :temperament, "Temperament Preference" %>
+        <%= f.label :temperament, "Temperament" %>
         <%= f.text_field :temperament, class: "form-control", placeholder: "Temperament" %>
       </div>
 
 
       <!-- Location -->
-      <div class="form-group">
-        <%= f.label :location %>
-        <%= f.password_field :location, class: "form-control", placeholder: "Location" %>
-      </div>
+      <!-- <div class="form-group">
+        <#%= f.label :location %>
+        <#%= f.text_field :location, class: "form-control", placeholder: "Location" %>
+      </div> -->
 
       <!-- Image URL -->
       <div class="form-group">
