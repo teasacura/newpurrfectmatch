@@ -14,15 +14,15 @@
 
 </header>
 
-<div class="form-check form-check-inline">
+<!-- <div class="form-check form-check-inline"> -->
   <!-- <#%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
   <#%= select_tag "search", options_for_select(["Person", "Cat"]) %> -->
    <!-- <#%= text_field_tag :search, params[:search], placeholder: "Search By Breed" %> -->
    <!-- <#%= number_field_tag :search, params[:search], placeholder: "Minimum Age" %>
    <#%= number_field :search, params[:search], placeholder: "Maximum Age" %> -->
    <!-- <#%= submit_tag "Search", :name => nil %>
-<% end %> -->
-</div>
+<#% end %> -->
+<!-- </div> -->
 
 <div class="row text-center" style="display: flex; flex-wrap: wrap;">
 
@@ -35,7 +35,7 @@
           <h4><%= profile.name %></h4>
         </div>
         <p>
-          <%= link_to "More Info", "/#{profile.class.to_s.pluralize.downcase}/#{profile.id}", class: "btn btn-primary"  %>
+          <%= link_to "More Info", "/#{profile.class.to_s.pluralize.downcase}/#{profile.id}", class: "btn btn-primary" %>
         </p>
       </div>
     </div>
