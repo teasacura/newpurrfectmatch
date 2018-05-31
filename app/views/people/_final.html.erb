@@ -23,7 +23,7 @@
           <h4><a><%= @person.name %></a></h4>
           <p><%= @person.description %></p>
 
-          <% if current_user && @person.id == current_user.id || current_user && current_user.admin?) %>
+          <% if current_user && @person.id == current_user.id || current_user && current_user.admin? %>
 
             <%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-xs btn-warning" %>
 

@@ -1,29 +1,86 @@
-<h1><%= @person.name %></h1>
-Age: <p><%= @person.age %></p>
-<p><%= image_tag(@person.image_url) %></p>
-<% if @person.admin %>
-  <h3><%= "Admin" %></h3>
-<% end %>
+<div class="container">
+  <div class="row">
 
-<h1>Cats</h1>
-<% if @person.cats.empty? %>
-  <%= "I don't have cats" %>
-<% else %>
-<ul>
-  <% @person.cats.each do |cat| %>
-    <li><%= link_to cat.name, cat_path(cat) %></li>
-  <% end %>
-</ul>
-<% end %>
+    <div class="col-md-3">
+
+      <p class="Lead">Personal Info</p>
+
+      <!-- Attributes -->
+      <div class="list-group">
+        <li class="list-group-item">Info</li>
+        <li class="list-group-item">Info 2</li>
+        <li class="list-group-item">Info 3</li>
+      </div>
 
 
+      <p class="Lead">My Cats</p>
 
-<% if current_user && @person.id == current_user.id || current_user && current_user.admin %>
-<%= link_to "Add a New Cat", new_cat_path, class: "btn btn-primary" %>
-  <br>
-  <br>
-  <%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-primary" %>
-  <br>
-  <br>
-  <%= link_to "Delete Profile", person_path(@person), { method: :delete } %>
-<% end %>
+      <div class="list-group">
+        <% if @person.cats.empty? %>
+          <li class="list-group-item"><%= "I don't have cats" %></li>
+        <% else %>
+          <% @person.cats.each do |cat| %>
+            <li class="list-group-item"><%= link_to cat.name, cat_path(cat) %></li>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-md-9">
+      <div class="thumbnail">
+
+        <%= image_tag @person.image_url, class: "image-responsive" %>
+
+        <div class="caption">
+          <h4><a><%= @person.name %></a></h4>
+          <p><%= @person.description %></p>
+
+          <% if current_user && @person.id == current_user.id || current_user && current_user.admin? %>
+
+            <%= link_to "Add a New Cat", new_cat_path, class: "btn btn-xs btn-primary" %>
+
+            <%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-xs btn-warning" %>
+            <div class="btn btn-xs btn-danger">
+                <%= link_to "Delete Profile", person_path(@person), { method: :delete } %>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- <h1><#%= @person.name %></h1>
+        Age: <p><#%= @person.age %></p> -->
+
+    <!-- <div class="col-md-9">
+      <div class="thumbnail">
+        <p><#%= image_tag(@person.image_url), class: "image-responsive" %></p>
+
+        <h1>Cats</h1>
+        <% if @person.cats.empty? %>
+          <#%= "I don't have cats" %>
+        <% else %>
+        <ul>
+          <% @person.cats.each do |cat| %>
+            <li><#%= link_to cat.name, cat_path(cat) %></li>
+          <% end %>
+        </ul>
+        <% end %> -->
+
+
+
+      <!-- <% if current_user && @person.id == current_user.id || current_user && current_user.admin %>
+      <#%= link_to "Add a New Cat", new_cat_path, class: "btn btn-primary" %>
+        <br>
+        <br>
+        <#%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-primary" %>
+        <br>
+        <br>
+        <#%= link_to "Delete Profile", person_path(@person), { method: :delete } %>
+      <% end %>
+  </div>
+</div> -->

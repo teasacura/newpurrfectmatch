@@ -1,15 +1,68 @@
-<h1><%= @cat.name %></h1>
-Breed: <p><%= @cat.breed %></p>
-<p><%= image_tag(@cat.image_url) %></p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+
+      <p class="Lead">Personal Info</p>
+
+      <!-- Attributes -->
+      <div class="list-group">
+        <li class="list-group-item">Info</li>
+        <li class="list-group-item">Info 2</li>
+        <li class="list-group-item">Info 3</li>
+      </div>
+
+
+      <p class="Lead">Sponsors</p>
+
+      <div class="list-group">
+        <% @cat.persons.each do |person| %>
+          <li class="list-group-item"><%= link_to person.name, person_path(person) %></li>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-md-9">
+      <div class="thumbnail">
+
+        <%= image_tag @cat.image_url, class: "image-responsive" %>
+
+        <div class="caption">
+          <h4><a><%= @cat.name %></a></h4>
+          <p><%= @cat.description %></p>
+
+          <% if current_user && @cat.persons.include?(current_user) || current_user && current_user.admin? %>
+
+            <%= link_to "Edit Profile", edit_cat_path(@cat), class: "btn btn-xs btn-warning" %>
+            <div class="btn btn-xs btn-danger">
+                <%= link_to "Delete Profile", cat_path(@cat), { method: :delete } %>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <h1><#%= @cat.name %></h1>
+Breed: <p><#%= @cat.breed %></p>
+<p><#%= image_tag(@cat.image_url) %></p>
 <h3>Description</h3>
-<p><%= @cat.description %></p>
+<p><#%= @cat.description %></p>
 
 <h2>Owner</h2>
-<%= link_to @cat.persons.first.name, person_path(@cat.persons.first) %>
+<#%= link_to @cat.persons.first.name, person_path(@cat.persons.first) %>
 
 <br>
 
 <br>
-<%= link_to "Edit Profile", edit_cat_path(@cat) %>
+<#%= link_to "Edit Profile", edit_cat_path(@cat) %> -->
 
 <!-- <p><em>Submitted by <a href="/users/<#%= campground.author.id %>"><#%= campground.author.username %></a></em> <#%= moment(campground.createdAt).fromNow() %>.</p> -->
