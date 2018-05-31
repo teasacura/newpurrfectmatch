@@ -11,9 +11,6 @@ class ApplicationController < ActionController::Base
   def index
     @profiles = Person.all + Cat.all
 
-    if !logged_in?
-      redirect_to login_path
-    end
   end
 
   def account_type
