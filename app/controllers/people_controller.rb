@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def new
     @person = Person.new
@@ -23,9 +24,11 @@ class PeopleController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
+
     @person.update(person_params)
     if @person.save
       redirect_to @person
@@ -35,7 +38,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    byebug
+
     @person.delete
     redirect_to root_path
   end
@@ -48,6 +51,10 @@ class PeopleController < ApplicationController
 
   def person_params
     params.require(:person).permit(:name, :email, :password, :password_confirmation, :age, :description, :location, :min_age_pref, :max_age_pref, :breed_pref, :temperament_pref, :num_of_cats, :image_url)
+  end
+
+  def check_user
+    redirect_to profiles_path if session[:person_id] != @person.id
   end
 
 end

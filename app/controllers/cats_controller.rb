@@ -1,6 +1,11 @@
 class CatsController < ApplicationController
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
+  # def method_name
+  #   person = Person.find(session[:person_id])
+  #   cat.persons.includes?(person)
+  # end
+
   def new
     @cat = Cat.new
   end

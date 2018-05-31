@@ -13,9 +13,10 @@ Age: <p><%= @person.age %></p>
 </ul>
 <% end %>
 
-<br>
-<%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-primary" %>
-
-<br>
-<br>
-<%= link_to "Delete Profile", person_path(@person), { method: :delete }, class: "btn btn-primary" %>
+<% if session[:person_id] == @person.id %>
+  <br>
+  <%= link_to "Edit Profile", edit_person_path(@person), class: "btn btn-primary" %>
+  <br>
+  <br>
+  <%= link_to "Delete Profile", person_path(@person), { method: :delete }, class: "btn btn-primary" %>
+<% end %>
