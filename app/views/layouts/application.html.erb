@@ -36,7 +36,9 @@
 	        <li><a href="#">Contact</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/account-type">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+					<% if session[:person_id].nil? %>
+		        <li><a href="/account-type">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+					<% end %>
 
 					<% if session[:person_id].nil? %>
 						<li>
