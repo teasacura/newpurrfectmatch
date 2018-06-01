@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: MyString
+  description: MyString
+  location: MyString
+  breed: MyString
+  temperament: MyString
+  sociability: MyString
+  min_age_pref: 1
+  max_age_pref: 1
+  breed_pref: MyString
+  temperament_pref: MyString
+  num_of_cats: 1
+
+two:
+  name: MyString
+  age: MyString
+  description: MyString
+  location: MyString
+  breed: MyString
+  temperament: MyString
+  sociability: MyString
+  min_age_pref: 1
+  max_age_pref: 1
+  breed_pref: MyString
+  temperament_pref: MyString
+  num_of_cats: 1
