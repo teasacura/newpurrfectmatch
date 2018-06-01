@@ -1,9 +1,58 @@
-<% if @search.search_profiles.empty? %>
-  <p>Nothing found</p>
-<% else %>
-  <ul>
-    <% @search.search_profiles.each do |profile| %>
-      <li><%= profile.name %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+<header class="jumbotron">
+
+  <div class="container">
+
+    <h1><span class="glyphicons glyphicons-cat"></span> Welcome to Purrfect Match</h1>
+    <p>View potential adopters and kitties from all over the world!</p>
+
+      <p>
+        <%= link_to "Back to All Profiles", profiles_path, class: "btn btn-primary btn-lg" %>
+      </p>
+
+  </div>
+
+</header>
+
+<!-- <div class="container">
+  <div class="row text-center">
+    <#%= form_tag profiles_path, :method => "get", :id => "search-form", :class => "form-control-md" do %>
+      <div class="form-group" style="margin-bottom: 15px">
+        <#%= select_tag "search", options_for_select(["Person", "Cat"]), class: "form-control", style: "margin-bottom: 10px" %>
+        <#%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+      </div>
+    <#% end %>
+  </div>
+
+  <div class="row text-center" style="margin-bottom: 10px">
+    <#%= link_to "Advanced Search", new_search_path, class: "btn btn-info" %>
+  </div>
+</div> -->
+
+
+<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+
+
+  <% if @search.search_profiles.empty? %>
+    <p class="lead" style="margin-left: 22px">Sorry! Nothing found</p>
+  <% else %>
+    <ul>
+      <% @search.search_profiles.each do |profile| %>
+        <!-- <li><#%= profile.name %></li> -->
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail">
+            <%= image_tag("#{profile.image_url}") %>
+            <div class="caption">
+              <h4><%= profile.name %></h4>
+            </div>
+            <p>
+              <%= link_to "More Info", "/#{profile.class.to_s.pluralize.downcase}/#{profile.id}", class: "btn btn-primary" %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+
+</div>
+</div>
