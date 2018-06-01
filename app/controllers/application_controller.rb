@@ -11,11 +11,19 @@ class ApplicationController < ActionController::Base
 
   def index
     @profiles = Person.all + Cat.all
-    # if params[:search]
-    #
-    # else
-    # @profiles = Person.all + Cat.all
-    # end
+    if params[:search]
+      @profiles = params[:search].constantize.all
+    else
+      @profiles = Person.all + Cat.all
+    end
+  end
+
+  def about
+
+  end
+
+  def contact
+
   end
 
   def account_type
