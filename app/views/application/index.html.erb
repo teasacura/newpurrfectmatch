@@ -8,7 +8,7 @@
 
     <% if session[:person_id].nil? %>
     <p>
-      <%= link_to "Create a Profile", account_type_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Create a Profile", new_person_path, class: "btn btn-primary btn-lg" %>
     </p>
     <% end %>
 
