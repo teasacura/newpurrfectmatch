@@ -1,13 +1,26 @@
 class Search < ApplicationRecord
 
   def search_profiles
-    profiles = cats_search.merge(people_search)
-    profiles
+    cats = cats_search
+    people = people_search
+
+    profiles = []
+
+    if !cats.nil?
+      profiles += cats
+    end
+
+    if !people.nil?
+      profiles += people
+    end
+
+    return profiles
 
   end
 
   def cats_search
     cats = Cat.all
+    # cats = Cat.where("name LIKE ? OR description LIKE ? OR location LIKE ? OR age = ? OR breed LIKE ? or temperament LIKE ? OR sociability LIKE ?", "%#{name}%", "%#{description}%", "%#{location}%", age, "%#{breed}%", "%#{temperament}%", "%#{sociability}%")
     cats = cats.where("name LIKE ?", "%#{name}%") if name.present?
     cats = cats.where("description LIKE ?", "%#{description}%") if description.present?
     cats = cats.where("location LIKE ?", "%#{location}%") if location.present?
@@ -16,7 +29,11 @@ class Search < ApplicationRecord
     cats = cats.where("temperament LIKE ?", "%#{temperament}%") if temperament.present?
     cats = cats.where("sociability LIKE ?", "%#{sociability}%") if sociability.present?
 
-    cats
+    if cats == Cat.all
+      return nil
+    else
+      return cats
+    end
   end
 
   def people_search
@@ -26,13 +43,18 @@ class Search < ApplicationRecord
     people = people.where("description LIKE ?", "%#{description}%") if description.present?
     people = people.where("location LIKE ?", "%#{location}%") if location.present?
 
-    people = people.where("min_age_pref >= ?", min_age_pref) if min_age_pref.present?
-    people = people.where("max_age_pref <= ?", max_age_pref) if max_age_pref.present?
+    people = people.where("min_age_pref = ?", min_age_pref) if min_age_pref.present?
+    people = people.where("max_age_pref = ?", max_age_pref) if max_age_pref.present?
     people = people.where("breed_pref LIKE ?", "%#{breed_pref}%") if breed_pref.present?
     people = people.where("temperament_pref LIKE ?", "%#{temperament_pref}%") if temperament_pref.present?
     people = people.where("num_of_cats = ?", num_of_cats) if num_of_cats.present?
 
-    people
+    if people == Person.all
+      return nil
+    else
+      return people
+    end
+
   end
 
 end

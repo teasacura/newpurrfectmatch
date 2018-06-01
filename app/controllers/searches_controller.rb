@@ -11,6 +11,7 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.find(params[:id])
+    # render "application/index"
   end
 
   private
