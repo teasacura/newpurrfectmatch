@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_30_194123) do
+ActiveRecord::Schema.define(version: 2018_06_01_025022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+  end
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
@@ -47,6 +53,23 @@ ActiveRecord::Schema.define(version: 2018_05_30_194123) do
     t.bigint "cat_id"
     t.index ["cat_id"], name: "index_person_cats_on_cat_id"
     t.index ["person_id"], name: "index_person_cats_on_person_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "description"
+    t.string "location"
+    t.string "breed"
+    t.string "temperament"
+    t.string "sociability"
+    t.integer "min_age_pref"
+    t.integer "max_age_pref"
+    t.string "breed_pref"
+    t.string "temperament_pref"
+    t.integer "num_of_cats"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

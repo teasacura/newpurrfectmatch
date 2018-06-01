@@ -14,14 +14,8 @@
 
 </header>
 
-<div class="form-check form-check-inline">
-  <!-- <#%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
-  <#%= select_tag "search", options_for_select(["Person", "Cat"]) %> -->
-   <!-- <#%= text_field_tag :search, params[:search], placeholder: "Search By Breed" %> -->
-   <!-- <#%= number_field_tag :search, params[:search], placeholder: "Minimum Age" %>
-   <#%= number_field :search, params[:search], placeholder: "Maximum Age" %> -->
-   <!-- <#%= submit_tag "Search", :name => nil %>
-<% end %> -->
+<div class="row text-center">
+  <%= link_to "Advanced Search", new_search_path, class: "btn btn-info" %>
 </div>
 
 <div class="row text-center" style="display: flex; flex-wrap: wrap;">

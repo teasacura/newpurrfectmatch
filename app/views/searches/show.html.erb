@@ -1,0 +1,9 @@
+<% if @search.search_profiles.empty? %>
+  <p>Nothing found</p>
+<% else %>
+  <ul>
+    <% @search.search_profiles.each do |profile| %>
+      <li><%= profile.name %></li>
+    <% end %>
+  </ul>
+<% end %>

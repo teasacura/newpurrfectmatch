@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
 
   def index
     @profiles = Person.all + Cat.all
-    byebug
-    if params[:search]
-
-    else
-    @profiles = Person.all + Cat.all
-    end
   end
 
   def account_type

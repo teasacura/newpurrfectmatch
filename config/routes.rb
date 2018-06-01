@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  resources :searches, except: [:index, :update, :destroy]
   resources :people, :cats, except: [:index]
   #show? 'Profiles/:id/cat'
   #show? 'Profiles/:id/adopter'
