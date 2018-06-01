@@ -1,11 +1,16 @@
 
 <body class="login">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <div class="container">
-      <%= form_tag '/login' do %>
-        Email: <%= text_field_tag :email %>
-        Password: <%= password_field_tag :password %>
+  <div class="login">
+    <div class="row" align="center">
+      <%= form_tag '/login', class: "form-inline" do %>
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+          <%= label_tag :password %>
+         <%= password_field_tag :password %>
         <%= submit_tag 'Log In' %>
+        </div>
       <% end %>
     </div>
+  </div>
 </body>

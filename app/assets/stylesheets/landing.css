@@ -29,6 +29,16 @@ body.contact {
 				 0px 18px 23px rgba(0,0,0,0.1);
 }
 
+div.login{
+    font-family: Lato;
+    text-align:center;
+    background-color: white;
+    background-size:cover;
+    background-position:center;
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
 h1 {
 	font-weight: 700;
 	font-size: 5em;
