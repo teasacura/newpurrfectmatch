@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 2018_06_01_025022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-  end
-
   create_table "cats", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -57,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_06_01_025022) do
 
   create_table "searches", force: :cascade do |t|
     t.string "name"
-    t.string "age"
+    t.integer "age"
     t.string "description"
     t.string "location"
     t.string "breed"
