@@ -7,9 +7,18 @@
 
       <!-- Attributes -->
       <div class="list-group">
-        <li class="list-group-item">Info</li>
-        <li class="list-group-item">Info 2</li>
-        <li class="list-group-item">Info 3</li>
+
+          <li class="list-group-item">Age:
+            <% if @person.age %>
+              <%= @person.age %>
+              <% end %>
+          </li>
+          <li class="list-group-item">Location:
+            <% if @person.location %>
+              <%= @person.location %>
+            <% end %>
+          </li>      
+          <li class="list-group-item">Info 3</li>
       </div>
 
 
