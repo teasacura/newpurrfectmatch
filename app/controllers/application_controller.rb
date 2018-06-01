@@ -22,10 +22,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def contact
-
-  end
-
   def account_type
   end
 

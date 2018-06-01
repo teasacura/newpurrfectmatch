@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'application#landing'
   get '/profiles', to: 'application#index',  as: 'profiles'
   get '/account-type', to: 'application#account_type'
-  get '/contact', to: 'application#contact'
+  get '/about', to: 'application#about'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
