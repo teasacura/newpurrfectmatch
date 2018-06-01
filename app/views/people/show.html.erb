@@ -14,7 +14,15 @@
           <li class="list-group-item">Location:
               <%= @person.location %>
           </li>
-          <li class="list-group-item">Info 3</li>
+          <li class="list-group-item">Cat Breed Preference:
+              <%= @person.breed_pref %>
+          </li>
+          <li class="list-group-item">Cat Age Preference:
+            From <%= @person.min_age_pref %> to <%= @person.max_age_pref %>
+          </li>
+          <li class="list-group-item">Cat Temperament Preference:
+              <%= @person.temperament_pref %>
+          </li>
       </div>
 
 
@@ -54,6 +62,7 @@
 
         </div>
       </div>
+        <%= link_to "Return to Profiles", profiles_path, class: "btn btn-xs btn-primary"  %>
     </div>
   </div>
 </div>

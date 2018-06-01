@@ -7,9 +7,9 @@
     <p>View potential adopters and kitties from all over the world!</p>
 
     <% if session[:person_id].nil? %>
-    <p>
-      <%= link_to "Create a Profile", new_person_path, class: "btn btn-primary btn-lg" %>
-    </p>
+      <p>
+        <%= link_to "Create a Profile", new_person_path, class: "btn btn-primary btn-lg" %>
+      </p>
     <% end %>
 
   </div>
