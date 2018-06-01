@@ -6,9 +6,11 @@
     <h1><span class="glyphicons glyphicons-cat"></span> Welcome to Purrfect Match</h1>
     <p>View potential adopters and kitties from all over the world!</p>
 
+    <% if session[:person_id].nil? %>
     <p>
       <%= link_to "Create a Profile", account_type_path, class: "btn btn-primary btn-lg" %>
     </p>
+    <% end %>
 
   </div>
 
