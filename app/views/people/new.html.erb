@@ -1,5 +1,17 @@
 <div class="row">
   <h1 style="text-align: center;">Create New Profile</h1>
+  <div class="container">
+
+ <% if flash[:error] %>
+   <% flash.each do |key, value| %>
+     <div class="alert alert-danger" role="alert">
+       <% value.each do |msg| %>
+        <%= content_tag :div, msg, class: "flash #{key}" %>
+       <% end %>
+     </div>
+   <% end %>
+ <% end %>
+</div>
 
     <%= render 'form'%>
 
