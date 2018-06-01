@@ -1,52 +1,83 @@
+<div class="row">
+  <h1 style="text-align: center;">Create New Profile</h1>
+  <div style="width: 50%; margin: 25px auto;">
+
+
 <h1>Advanced Search</h1>
 
 <%= form_for @search do |f| %>
-  <h2>Search All Profiles Options</h2>
+  <h2 class="lead">Search All Profiles Options</h2>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br><br>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br><br>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+    </div>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %><br><br>
-
-
-  <h2>Additional Cat Options for Cat Only Results</h2>
-
-  <%= f.label :age %>
-  <%= f.number_field :age, min: 0 %><br><br>
-
-  <%= f.label :breed %>
-  <%= f.text_field :breed %><br><br>
-
-  <%= f.label :temperament %>
-  <%= f.text_field :temperament %><br><br>
-
-  <%= f.label :sociability %>
-  <%= f.text_field :sociability %><br><br>
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: "form-control" %>
+    </div>
 
 
-  <h2>Additional Person Options for People Only Results</h2>
+  <h2 class="lead">Additional Cat Options for Cat Only Results</h2>
 
-  <%= f.label :min_age_pref %>
-  <%= f.number_field :min_age_pref, min: 0 %><br><br>
+  <div class="form-group">
+    <%= f.label :age %>
+    <%= f.number_field :age, min: 0, class: "form-control" %>
+    </div>
 
-  <%= f.label :max_age_pref %>
-  <%= f.number_field :max_age_pref, min: 0 %><br><br>
+  <div class="form-group">
+    <%= f.label :breed %>
+    <%= f.text_field :breed, class: "form-control" %>
+    </div>
 
-  <%= f.label :breed_pref %>
-  <%= f.text_field :breed_pref %><br><br>
+  <div class="form-group">
+    <%= f.label :temperament %>
+    <%= f.text_field :temperament, class: "form-control" %>
+    </div>
 
-  <%= f.label :temperament_pref %>
-  <%= f.text_field :temperament_pref %><br><br>
+  <div class="form-group">
+    <%= f.label :sociability %>
+    <%= f.text_field :sociability, class: "form-control" %>
+    </div>
 
-  <%= f.label :num_of_cats %>
-  <%= f.number_field :num_of_cats, min: 0 %><br><br>
 
-  <%= f.submit "Search" %>
+  <h2 class="lead">Additional Person Options for People Only Results</h2>
+
+  <div class="form-group">
+    <%= f.label :min_age_pref %>
+    <%= f.number_field :min_age_pref, min: 0, class: "form-control" %>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :max_age_pref %>
+    <%= f.number_field :max_age_pref, min: 0, class: "form-control" %>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :breed_pref %>
+    <%= f.text_field :breed_pref, class: "form-control" %>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :temperament_pref %>
+    <%= f.text_field :temperament_pref, class: "form-control" %>
+    </div>
+  <div class="form-group">
+    <%= f.label :num_of_cats %>
+    <%= f.number_field :num_of_cats, min: 0, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Search", class: "btn btn-lg btn-success", style: "margin-bottom: 25px" %>
 
 <% end %>
 
-<%= link_to "Back", profiles_path %>
+<%= link_to "Back to Profiles", profiles_path, class: "btn btn-sm btn-primary" %>
+    </div>
+  </h1>
+</div>

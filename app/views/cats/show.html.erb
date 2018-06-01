@@ -7,15 +7,13 @@
 
       <!-- Attributes -->
       <div class="list-group">
-        <li class="list-group-item">Age:
-          <%= @cat.age %>
+        <li class="list-group-item">
+          Age: <%= @cat.age %>
         </li>
-        <li class="list-group-item">Location:
-          <%= @cat.location %>
+        <li class="list-group-item">
+          Breed: <%= @cat.breed %>
         </li>
-        <li class="list-group-item">Breed:
-          <%= @cat.breed %>
-        </li>
+        <li class="list-group-item">Info 3</li>
       </div>
 
 
@@ -26,8 +24,9 @@
           <li class="list-group-item"><%= link_to person.name, person_path(person) %></li>
         <% end %>
       </div>
-
+      <%= link_to "Return to Profiles", profiles_path, class: "btn btn-xs btn-primary"  %>
     </div>
+
 
     <div class="col-md-9">
       <div class="thumbnail">
@@ -49,6 +48,9 @@
 
         </div>
       </div>
+        <div class="row text-center">
+          <%= link_to "Request Cat", "#", class: "btn btn-lg btn-success" %>
+        </div>
     </div>
   </div>
 </div>

@@ -17,7 +17,8 @@ class PeopleController < ApplicationController
       session[:person_id] = @person.id
       redirect_to @person
     else
-      render 'new'
+      flash[:error] = @person.errors.full_messages
+      redirect_to new_person_path
     end
   end
 
@@ -30,6 +31,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to @person
     else
+      flash[:error] = @person.errors
       render 'edit'
     end
   end
